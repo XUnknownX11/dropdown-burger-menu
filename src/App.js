@@ -25,11 +25,12 @@ const BurgerMenu = ({ open, navHeight=60, children, ...props }) => {
     padding: '2rem',
     backgroundColor: 'gray',
     position: 'absolute',
-    marginTop: window && navHeight + window.pageYOffset, 
+    marginTop: window && open ? navHeight + window.pageYOffset : 0, 
+    height: open ? 'unset' : 60,
     transform: open ? `translateY(0)` : `translateY(-100%)`,
     top: 0,
     right: 0,
-    transition: 'transform 0.3s ease-in-out',
+    transition: 'height 0.3s ease-in-out, transform 0.3s ease-in-out, margin-top 0.3s ease-in-out'
   }
 
 
